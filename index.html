@@ -292,7 +292,7 @@ footer b{font:400 1.2rem var(--s);color:#fff}
     tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
   }
   tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){elegir(t)});
+    t.addEventListener('click',function(){elegir(t);t.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'})});
     t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var nx=tabs[(i+k+tabs.length)%tabs.length];elegir(nx);nx.focus();nx.scrollIntoView({block:'nearest',inline:'nearest'})}});
   });
 
