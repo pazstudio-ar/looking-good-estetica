@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Looking Good · Estética integral en Piñeyro, Avellaneda</title>
+<meta name="description" content="Estética integral en Av. Galicia 538, Piñeyro. Manos, pies, podología, limpieza de cutis, pestañas, depilación y masajes. De martes a sábado, horario corrido. Turnos por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Albert+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ciruela:#3B1630;--ciruela2:#562443;--rosa:#D94C86;--rubor:#FBE9EF;--rubor2:#F4D3DF;
+  --nogal:#8A5A3B;--luz:#FFD27A;--blanco:#fff;--tinta:#2A1022;--gris:#6E5866;
+  --s:'Gloock',Georgia,serif;--t:'Albert Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 1.05rem/1.6 var(--t);color:var(--tinta);background:var(--rubor)}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
+.envolver{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--s);font-weight:400;line-height:1.05;margin:0}
+h2{font-size:clamp(2rem,5vw,3.2rem);color:var(--ciruela)}
+.bajada{max-width:56ch;color:var(--gris);margin:14px 0 0}
+
+/* cabecera */
+.cab{position:absolute;inset:0 0 auto;z-index:5}
+.cab .envolver{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.marca{text-decoration:none;color:#fff;line-height:1}
+.marca b{display:block;font:400 1.5rem var(--s)}
+.marca small{font-size:.78rem;letter-spacing:.04em;color:#E7C6D6}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font:800 1rem var(--t);text-decoration:none;border:0;cursor:pointer;background:var(--rosa);color:#fff;transition:background .2s}
+.btn:hover{background:#C23A73}
+.btn svg{width:22px;height:22px;flex:none}
+.btn.chico{padding:10px 16px;font-size:.92rem}
+.btn.claro{background:#fff;color:var(--ciruela)}
+.btn.claro:hover{background:var(--rubor2)}
+
+/* hero */
+.hero{position:relative;background:var(--ciruela);color:#fff;overflow:hidden;padding:150px 0 0}
+.luces{position:absolute;left:0;right:0;top:64px;height:140px;width:100%;pointer-events:none}
+.luces path{fill:none;stroke:#7A4A66;stroke-width:1.5}
+.luces .foco{fill:var(--luz);opacity:.18;transition:opacity .5s}
+.luces .halo{fill:var(--luz);opacity:0;filter:blur(6px);transition:opacity .5s}
+.luces.on .foco{opacity:1}
+.luces.on .halo{opacity:.55}
+.hero-grid{position:relative;display:grid;gap:40px;align-items:end}
+.hero h1{font-size:clamp(3.6rem,13vw,8.5rem);letter-spacing:-.01em}
+.hero p{max-width:40ch;color:#EBD3DF;font-size:1.12rem;margin:22px 0 28px}
+.hero .acciones{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding-bottom:56px}
+.hero .acciones a.link{color:#fff;font-weight:700;text-underline-offset:4px}
+.hero-foto{position:relative;align-self:end}
+.hero-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;border:10px solid var(--nogal);border-bottom:0}
+.hero-foto .sello{position:absolute;left:-18px;bottom:36px;background:var(--rubor);color:var(--ciruela);padding:12px 16px;font-weight:800;line-height:1.2;font-size:.95rem}
+.hero-foto .sello span{display:block;font:400 1.6rem var(--s);color:var(--rosa)}
+@media(min-width:881px){.hero-grid{grid-template-columns:1.25fr .75fr}.hero .acciones{padding-bottom:90px}}
+@media(max-width:880px){.hero-foto{width:min(420px,100%);margin-left:auto}.hero-foto .sello{left:auto;right:calc(100% - 24px)}}
+@media(max-width:520px){.hero{padding-top:130px}.hero-foto .sello{right:auto;left:0;bottom:20px}}
+
+/* armá tu turno */
+.turno{padding:90px 0}
+.zonas{display:flex;gap:8px;margin:34px 0 0;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none}
+.zonas::-webkit-scrollbar{display:none}
+.zonas button{flex:none;padding:12px 18px;border:2px solid var(--ciruela);background:transparent;color:var(--ciruela);font:700 .98rem var(--t);cursor:pointer}
+.zonas button[aria-selected=true]{background:var(--ciruela);color:#fff}
+.panel{display:grid;gap:12px;margin-top:22px}
+.panel[hidden]{display:none}
+@media(min-width:700px){.panel{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1000px){.panel{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.trat{position:relative;display:flex;gap:14px;align-items:flex-start;padding:18px;background:var(--blanco);cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.trat input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;margin:0}
+.trat .tilde{flex:none;width:24px;height:24px;border:2px solid var(--rubor2);display:grid;place-items:center;margin-top:2px;transition:background .2s,border-color .2s}
+.trat .tilde svg{width:14px;height:14px;stroke:#fff;stroke-width:3;fill:none;opacity:0}
+.trat b{display:block;font-weight:800;color:var(--ciruela)}
+.trat span.d{display:block;font-size:.92rem;color:var(--gris);line-height:1.45;margin-top:2px}
+.trat:has(input:checked){border-color:var(--rosa)}
+.trat input:checked + .tilde{background:var(--rosa);border-color:var(--rosa)}
+.trat input:checked + .tilde svg{opacity:1}
+.trat:has(input:focus-visible){outline:3px solid var(--rosa);outline-offset:3px}
+.resumen{position:sticky;bottom:0;z-index:4;margin-top:26px;background:var(--ciruela);color:#fff;padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between}
+.resumen p{margin:0;min-width:0;flex:1 1 260px;color:#EBD3DF;font-size:.96rem}
+.resumen p b{color:#fff}
+
+/* el lugar */
+.lugar{background:var(--blanco);padding:90px 0}
+.lugar-cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px}
+.flechas{display:flex;gap:8px;align-items:center}
+.flechas button{width:46px;height:46px;border:2px solid var(--ciruela);background:#fff;color:var(--ciruela);font-size:1.3rem;cursor:pointer}
+.flechas button:disabled{opacity:.3;cursor:default}
+.flechas span{font-weight:700;color:var(--gris);min-width:56px;text-align:center}
+.tira{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,32%);gap:4px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:30px;scrollbar-width:none}
+.tira::-webkit-scrollbar{display:none}
+.tira img{width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start}
+@media(max-width:600px){.tira{grid-auto-columns:82%}}
+
+/* reseñas */
+.dicen{padding:90px 0;background:var(--rubor2)}
+.citas{display:grid;gap:18px;margin-top:34px}
+@media(min-width:800px){.citas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.citas figure{margin:0;padding:26px;background:var(--rubor)}
+.citas blockquote{margin:0;font:400 1.35rem/1.3 var(--s);color:var(--ciruela)}
+.citas figcaption{margin-top:16px;font-size:.9rem;color:var(--gris);font-weight:700}
+.estrellas{color:var(--rosa);letter-spacing:2px;margin-bottom:10px}
+
+/* horarios + mapa */
+.donde{padding:90px 0}
+.donde-grid{display:grid;gap:34px;margin-top:34px}
+@media(min-width:900px){.donde-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.estado-hoy{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:9px 16px;background:var(--blanco);font-weight:800}
+.estado-hoy i{width:10px;height:10px;border-radius:50%;background:#2E9E6B;box-shadow:0 0 0 4px rgba(46,158,107,.18)}
+.estado-hoy.cerrado i{background:var(--gris);box-shadow:none}
+.semana{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:0;padding:0;list-style:none}
+.semana li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 4px;background:var(--blanco);text-align:center}
+.semana b{font:400 1.2rem var(--s);color:var(--ciruela)}
+.semana span{font-size:.8rem;line-height:1.25;color:var(--gris)}
+.semana li.no{opacity:.45}
+.semana li.hoy{background:var(--ciruela)}
+.semana li.hoy b{color:#fff}
+.semana li.hoy span{color:#E7C6D6}
+.datos{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:12px}
+.datos li{display:flex;gap:12px;align-items:baseline}
+.datos small{flex:none;width:92px;color:var(--gris);font-weight:700}
+.datos a{font-weight:800;text-underline-offset:3px}
+.mapa{width:100%;min-height:340px;height:100%;border:0;background:var(--rubor2)}
+
+footer{background:var(--ciruela);color:#E7C6D6;padding:34px 0;font-size:.9rem}
+footer .envolver{display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
+footer b{font:400 1.2rem var(--s);color:#fff}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="cab">
+  <div class="envolver">
+    <a class="marca" href="#"><b>Looking Good</b><small>Estética integral · Piñeyro</small></a>
+    <a class="btn chico" href="https://wa.me/5491153202068?text=Hola%20Andrea!%20Quer%C3%ADa%20consultar%20por%20un%20turno." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C8.9 3 3.1 8.78 3.1 15.9c0 2.28.6 4.5 1.73 6.45L3 29l6.83-1.79a12.9 12.9 0 0 0 6.2 1.58h.01c7.13 0 12.93-5.79 12.93-12.9S23.17 3 16.04 3Zm0 23.6h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-4.05 1.06 1.08-3.95-.26-.4a10.66 10.66 0 0 1-1.64-5.68c0-5.9 4.82-10.71 10.74-10.71 5.92 0 10.73 4.8 10.73 10.71 0 5.9-4.82 10.7-10.74 10.7Zm5.89-8.02c-.32-.16-1.91-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.29.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.44 5.47 4.83.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.91-.78 2.18-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/></svg>Turnos</a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="luces" id="luces" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
+    <path id="cable" d="M-20 18 Q 300 120 600 40 T 1220 30"/>
+    <g id="focos"></g>
+  </svg>
+  <div class="envolver hero-grid">
+    <div>
+      <h1>Sentite bien.</h1>
+      <p>Estética integral en Av. Galicia 538, Piñeyro. Manos, pies, rostro, pestañas y masajes, de martes a sábado con horario corrido.</p>
+      <div class="acciones">
+        <a class="btn" href="#turno"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C8.9 3 3.1 8.78 3.1 15.9c0 2.28.6 4.5 1.73 6.45L3 29l6.83-1.79a12.9 12.9 0 0 0 6.2 1.58h.01c7.13 0 12.93-5.79 12.93-12.9S23.17 3 16.04 3Zm0 23.6h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-4.05 1.06 1.08-3.95-.26-.4a10.66 10.66 0 0 1-1.64-5.68c0-5.9 4.82-10.71 10.74-10.71 5.92 0 10.73 4.8 10.73 10.71 0 5.9-4.82 10.7-10.74 10.7Zm5.89-8.02c-.32-.16-1.91-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.29.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.44 5.47 4.83.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.91-.78 2.18-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/></svg>Armá tu turno</a>
+        <a class="link" href="#lugar">Conocé el lugar</a>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RPRbfYzXGxHWw-lezgtWZfPqZ2RDEeiGo8ngQK5Nz7Tp9KE-1kcgkDZg72708pHkTuqrJYlJJKffp4w7MCRzRK1O7LOGaa9ADzKYHu44C-ypbJDNyDHOuQmqkOaY38ySGlyPg=w900-h1125-k-no" alt="Sillones rosas de manicura en Looking Good">
+      <div class="sello"><span>Andrea</span>te atiende ella</div>
+    </div>
+  </div>
+</section>
+
+<section class="turno" id="turno">
+  <div class="envolver">
+    <h2>Armá tu turno</h2>
+    <p class="bajada">Elegí uno o varios tratamientos y mandale la consulta a Andrea por WhatsApp. Ella te responde con el día y el horario.</p>
+
+    <div class="zonas" role="tablist" aria-label="Zonas">
+      <button role="tab" id="t-manos" aria-controls="p-manos" aria-selected="true">Manos</button>
+      <button role="tab" id="t-pies" aria-controls="p-pies" aria-selected="false" tabindex="-1">Pies</button>
+      <button role="tab" id="t-rostro" aria-controls="p-rostro" aria-selected="false" tabindex="-1">Rostro y mirada</button>
+      <button role="tab" id="t-cuerpo" aria-controls="p-cuerpo" aria-selected="false" tabindex="-1">Cuerpo</button>
+      <button role="tab" id="t-bien" aria-controls="p-bien" aria-selected="false" tabindex="-1">Masajes y bienestar</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-manos" aria-labelledby="t-manos">
+      <label class="trat"><input type="checkbox" value="Manicura"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Manicura</b><span class="d">Limado, cutículas y esmaltado tradicional.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Esmaltado semipermanente"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Esmaltado semipermanente</b><span class="d">Esmaltado on-off que dura brillante varias semanas.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Uñas esculpidas"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Uñas esculpidas</b><span class="d">Largo y forma a tu gusto, con francesita o color.</span></span></label>
+    </div>
+    <div class="panel" role="tabpanel" id="p-pies" aria-labelledby="t-pies" hidden>
+      <label class="trat"><input type="checkbox" value="Podología"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Podología</b><span class="d">Callos, durezas y uñas encarnadas, con cuidado.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Pedicuría"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Pedicuría</b><span class="d">Pies prolijos y esmaltados, listos para las sandalias.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Belleza de pies"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Belleza de pies</b><span class="d">Podoestética completa: exfoliación, hidratación y masaje.</span></span></label>
+    </div>
+    <div class="panel" role="tabpanel" id="p-rostro" aria-labelledby="t-rostro" hidden>
+      <label class="trat"><input type="checkbox" value="Limpieza de cutis"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Limpieza de cutis</b><span class="d">Limpieza profunda para una piel fresca y luminosa.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Tratamiento facial"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Tratamientos faciales</b><span class="d">Cosmetología según lo que necesite tu piel.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Lifting de pestañas"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Lifting de pestañas</b><span class="d">Curvatura natural que te ahorra la arqueadora.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Permanente de pestañas"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Permanente de pestañas</b><span class="d">Pestañas arqueadas por semanas.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Tintura de cejas"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Tintura de cejas</b><span class="d">Cejas más definidas, sin maquillaje.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Maquillaje"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Maquillaje</b><span class="d">Para un evento, una salida o una foto.</span></span></label>
+    </div>
+    <div class="panel" role="tabpanel" id="p-cuerpo" aria-labelledby="t-cuerpo" hidden>
+      <label class="trat"><input type="checkbox" value="Depilación"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Depilación</b><span class="d">Rostro, piernas, axilas y cavado.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Tratamiento corporal"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Tratamientos corporales</b><span class="d">Para reafirmar, modelar y cuidar la piel del cuerpo.</span></span></label>
+    </div>
+    <div class="panel" role="tabpanel" id="p-bien" aria-labelledby="t-bien" hidden>
+      <label class="trat"><input type="checkbox" value="Masajes"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Masajes</b><span class="d">Descontracturantes y relajantes.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Masaje tailandés"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Masaje tailandés</b><span class="d">Estiramientos y presión para soltar todo el cuerpo.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Reflexología"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Reflexología</b><span class="d">Masaje en los pies que relaja de pies a cabeza.</span></span></label>
+      <label class="trat"><input type="checkbox" value="Reiki"><i class="tilde"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></i><span><b>Reiki</b><span class="d">Un rato de calma para bajar un cambio.</span></span></label>
+    </div>
+
+    <div class="resumen" aria-live="polite">
+      <p id="elegidos">Todavía no elegiste nada. Podés marcar varios.</p>
+      <a class="btn claro" id="pedir" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C8.9 3 3.1 8.78 3.1 15.9c0 2.28.6 4.5 1.73 6.45L3 29l6.83-1.79a12.9 12.9 0 0 0 6.2 1.58h.01c7.13 0 12.93-5.79 12.93-12.9S23.17 3 16.04 3Zm0 23.6h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-4.05 1.06 1.08-3.95-.26-.4a10.66 10.66 0 0 1-1.64-5.68c0-5.9 4.82-10.71 10.74-10.71 5.92 0 10.73 4.8 10.73 10.71 0 5.9-4.82 10.7-10.74 10.7Zm5.89-8.02c-.32-.16-1.91-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.29.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.44 5.47 4.83.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.91-.78 2.18-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/></svg>Consultar turno</a>
+    </div>
+  </div>
+</section>
+
+<section class="lugar" id="lugar">
+  <div class="envolver">
+    <div class="lugar-cab">
+      <div>
+        <h2>Un lugar para tomarte un rato</h2>
+        <p class="bajada">Sillones cómodos, lucecitas y un ambiente tranquilo para que salgas renovada.</p>
+      </div>
+      <div class="flechas"><button id="ant" aria-label="Foto anterior">←</button><span id="contador">1 / 7</span><button id="sig" aria-label="Foto siguiente">→</button></div>
+    </div>
+    <div class="tira" id="tira">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SLTzKMo8q_As3mnHsBdz9bGhm1HUeJ1_6KaBDrF26KWDz1S6B73lqLeSleOFWAUzuUyEtHh0ICy36K7aEzNXGdspPa_qsfrGjynUzxSRxZbO8unXF6VU5wYv1G_6QhoKddhjH8Mg=w700-h700-k-no" alt="Sala de espera con sillones floreados y lucecitas" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R93Veu4MtdcXxa__gFdEfld2nmE3N1VVaVxrzONOJkQsdFOHmnrmppM7KKDUOFlm4-3UP-Gxb22S3yndY_QscO231rYZFfLlmGIUED1sqk-bX_qHfvp4Xn16agLDDU04zwuk8c=w700-h700-k-no" alt="Manos con uñas esculpidas francesitas" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RdLfHIuWHs4Fj1lp8pJChqeaHN6j2rMGSQODNPIdU3cnIqv-spe1ti2uANEyX8OXHFQSONCmz3Xh2KVpG8WaF2PDk-DUopd-tzgZxxLQy9qx0T-dgubYLxMvN7cF852OqvbKRI=w700-h700-k-no" alt="Mesa de manicura con esmaltes" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TBCT6ORqR-a6pNRVjrL5mvMbhH15cRp6X3f-r7s40HCCBYbtoEV4D0RWItnrhLJcgxZtEgeTx9ztSCfQ4deVt5Ooqqq7_PrHyAGGrZA0thEZPU9CV6NX1Jvb7t7igB-sZ-LpNv=w700-h700-k-no" alt="Esmaltado rosa con uña en glitter" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S7bF64GLBQnQZX2lj1p5_Jm28KX9yE2u5QyxQW-hvM6bSL2UCgaqOwFXspqwTxp6B13ZKyRqyJJRfJ5bSUNVor5ireiyhWV2m20-LhrLZ71UzZJ7TPkjpVFL-LMK95ULw0_EEC2w=w700-h700-k-no" alt="Camilla y productos de tratamiento" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RC9fL8kPp1uQtVEIJvJ_ArJMyeXLyKRcb97jkUvvXnVYuBKo-20NFiFV338Xibp1xWYgCopY7WqmyTcNZTRwxDoeqDWGBLH96OfL3ilkWDxwiuGnGvEjdpLjAzw0PPE6R2E7c=w700-h700-k-no" alt="Rincón del local con plantas y canastos" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SxVvK8n9iIOMr0-hS4j_-nw3S_IWblYDcJTo94Ywra85rqmT30zJJnbmpLxRBzHaUJufoIh7aFIVrPVhs4fOeInqbI08OoFn5rOzLjXs_34tiLV5fZ9iPInLOn6eKy1exp9y4D=w700-h700-k-no" alt="Frente del local en Av. Galicia" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="dicen">
+  <div class="envolver">
+    <h2>Lo que cuentan las clientas</h2>
+    <div class="citas">
+      <figure><div class="estrellas" aria-label="5 estrellas">★★★★★</div><blockquote>“Los pies me dejaron renovada. Súper buena atención.”</blockquote><figcaption>Reseña en Google</figcaption></figure>
+      <figure><div class="estrellas" aria-label="5 estrellas">★★★★★</div><blockquote>“Fue amable, cordial y muy cuidadosa. Ya tengo cita para volver.”</blockquote><figcaption>Reseña en Google, sobre Andrea</figcaption></figure>
+      <figure><div class="estrellas" aria-label="5 estrellas">★★★★★</div><blockquote>“Hace todo tipo de tratamiento. Es la primera vez que voy pero no será la última.”</blockquote><figcaption>Reseña en Google</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="donde" id="donde">
+  <div class="envolver">
+    <h2>Cuándo y dónde</h2>
+    <div class="donde-grid">
+      <div>
+        <p class="estado-hoy" id="estado-hoy"><i></i><span>Horarios</span></p>
+        <ul class="semana" id="semana" aria-label="Horarios de la semana"></ul>
+        <ul class="datos">
+          <li><small>Dirección</small><span>Av. Galicia 538, Piñeyro, Avellaneda</span></li>
+          <li><small>WhatsApp</small><a href="https://wa.me/5491153202068" target="_blank" rel="noopener">11 5320-2068</a></li>
+          <li><small>Teléfono</small><a href="tel:+541142182069">4218-2069</a></li>
+          <li><small>Instagram</small><a href="https://www.instagram.com/looking_good.ok/" target="_blank" rel="noopener">@looking_good.ok</a></li>
+        </ul>
+      </div>
+      <iframe class="mapa" title="Mapa: Av. Galicia 538, Avellaneda" loading="lazy" src="https://www.google.com/maps?q=Est%C3%A9tica%20Integral%20Looking%20Good%2C%20Av.%20Galicia%20538%2C%20Avellaneda&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="envolver">
+    <span><b>Looking Good</b> · Estética integral · ¡Sentite bien!</span>
+    <span>Av. Galicia 538, Piñeyro · Martes a sábado, 11:30 a 19:00</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='5491153202068';
+
+  /* lucecitas */
+  var cable=document.getElementById('cable'),g=document.getElementById('focos'),L=cable.getTotalLength(),n=18,ns='http://www.w3.org/2000/svg';
+  for(var i=1;i<n;i++){
+    var p=cable.getPointAtLength(L*i/n);
+    var h=document.createElementNS(ns,'circle');h.setAttribute('class','halo');h.setAttribute('cx',p.x);h.setAttribute('cy',p.y+9);h.setAttribute('r',11);
+    var c=document.createElementNS(ns,'ellipse');c.setAttribute('class','foco');c.setAttribute('cx',p.x);c.setAttribute('cy',p.y+9);c.setAttribute('rx',4);c.setAttribute('ry',6);
+    var d=(i*0.09)+'s';h.style.transitionDelay=d;c.style.transitionDelay=d;
+    g.appendChild(h);g.appendChild(c);
+  }
+  requestAnimationFrame(function(){setTimeout(function(){document.getElementById('luces').classList.add('on')},300)});
+
+  /* pestañas */
+  var tabs=[].slice.call(document.querySelectorAll('.zonas [role=tab]'));
+  function elegir(t){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){elegir(t)});
+    t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var nx=tabs[(i+k+tabs.length)%tabs.length];elegir(nx);nx.focus();nx.scrollIntoView({block:'nearest',inline:'nearest'})}});
+  });
+
+  /* resumen + whatsapp */
+  var checks=[].slice.call(document.querySelectorAll('.trat input')),el=document.getElementById('elegidos'),pedir=document.getElementById('pedir');
+  function act(){
+    var s=checks.filter(function(c){return c.checked}).map(function(c){return c.value});
+    var msg;
+    if(!s.length){el.textContent='Todavía no elegiste nada. Podés marcar varios.';msg='Hola Andrea! Quería consultar por un turno.';pedir.lastChild.textContent='Consultar turno'}
+    else{
+      var lista=s.length===1?s[0]:s.slice(0,-1).join(', ')+' y '+s[s.length-1];
+      el.innerHTML='Elegiste: <b></b>';el.querySelector('b').textContent=lista;
+      msg='Hola Andrea! Quería un turno para '+lista.toLowerCase()+'. ¿Qué días y horarios tenés?';
+      pedir.lastChild.textContent='Pedir turno ('+s.length+')';
+    }
+    pedir.href='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+  }
+  checks.forEach(function(c){c.addEventListener('change',act)});act();
+
+  /* tira de fotos */
+  var t=document.getElementById('tira'),imgs=t.querySelectorAll('img'),ant=document.getElementById('ant'),sig=document.getElementById('sig'),cont=document.getElementById('contador');
+  function paso(){return imgs[0].getBoundingClientRect().width+4}
+  function mover(){var i=Math.round(t.scrollLeft/paso());cont.textContent=Math.min(i+1,imgs.length)+' / '+imgs.length;ant.disabled=t.scrollLeft<5;sig.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-5}
+  ant.addEventListener('click',function(){t.scrollBy({left:-paso(),behavior:'smooth'})});
+  sig.addEventListener('click',function(){t.scrollBy({left:paso(),behavior:'smooth'})});
+  t.addEventListener('scroll',mover,{passive:true});window.addEventListener('resize',mover);mover();
+
+  /* horarios */
+  var dias=[['D','Domingo',null],['L','Lunes',null],['M','Martes',[11.5,19]],['M','Miércoles',[11.5,19]],['J','Jueves',[11.5,19]],['V','Viernes',[11.5,19]],['S','Sábado',[11.5,19]]];
+  function f(h){var m=Math.round((h%1)*60),H=Math.floor(h);return (H<10?'0':'')+H+':'+(m<10?'0':'')+m}
+  var ahora=new Date(),hoy=ahora.getDay(),hr=ahora.getHours()+ahora.getMinutes()/60,sem=document.getElementById('semana');
+  [1,2,3,4,5,6,0].forEach(function(i){
+    var d=dias[i],li=document.createElement('li');
+    if(!d[2])li.className='no';if(i===hoy)li.className+=' hoy';
+    li.setAttribute('aria-label',d[1]+': '+(d[2]?f(d[2][0])+' a '+f(d[2][1])+' h':'cerrado'));
+    li.innerHTML='<b aria-hidden="true">'+d[0]+'</b><span aria-hidden="true">'+(d[2]?f(d[2][0])+'<br>a<br>'+f(d[2][1]):'—')+'</span>';
+    sem.appendChild(li);
+  });
+  var eh=document.getElementById('estado-hoy'),h=dias[hoy][2],txt;
+  if(h&&hr>=h[0]&&hr<h[1]){txt='Hoy abierto hasta las '+f(h[1])+' h'}
+  else{eh.classList.add('cerrado');var k=hoy,c=0;
+    if(h&&hr<h[0]){txt='Hoy abre a las '+f(h[0])+' h'}
+    else{do{k=(k+1)%7;c++}while(!dias[k][2]&&c<7);txt='Cerrado ahora · abre '+(c===1?'mañana':'el '+dias[k][1].toLowerCase())+' a las '+f(dias[k][2][0])+' h'}}
+  eh.querySelector('span').textContent=txt;
+})();
+</script>
+</body>
+</html>
