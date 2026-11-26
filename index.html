@@ -57,13 +57,15 @@ h2{font-size:clamp(2rem,5vw,3.2rem);color:var(--ciruela)}
 .hero-foto .sello span{display:block;font:400 1.6rem var(--s);color:var(--rosa)}
 @media(min-width:881px){.hero-grid{grid-template-columns:1.25fr .75fr}.hero .acciones{padding-bottom:90px}}
 @media(max-width:880px){.hero-foto{width:min(420px,100%);margin-left:auto}.hero-foto .sello{left:auto;right:calc(100% - 24px)}}
-@media(max-width:520px){.hero{padding-top:130px}.hero-foto .sello{right:auto;left:0;bottom:20px}}
+@media(max-width:880px){.hero .acciones{padding-bottom:4px}.hero-grid{gap:44px}}
+@media(max-width:520px){.hero{padding-top:130px}.hero-foto img{aspect-ratio:1}.hero-foto .sello{right:auto;left:0;bottom:20px}}
 
 /* armá tu turno */
 .turno{padding:90px 0}
 .zonas{display:flex;gap:8px;margin:34px 0 0;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none}
 .zonas::-webkit-scrollbar{display:none}
 .zonas button{flex:none;padding:12px 18px;border:2px solid var(--ciruela);background:transparent;color:var(--ciruela);font:700 .98rem var(--t);cursor:pointer}
+.zonas button em{font-style:normal;display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:8px;padding:0 6px;background:var(--rosa);color:#fff;font-size:.8rem}
 .zonas button[aria-selected=true]{background:var(--ciruela);color:#fff}
 .panel{display:grid;gap:12px;margin-top:22px}
 .panel[hidden]{display:none}
@@ -142,7 +144,7 @@ footer b{font:400 1.2rem var(--s);color:#fff}
 </header>
 
 <section class="hero">
-  <svg class="luces" id="luces" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
+  <svg class="luces" id="luces" viewBox="0 0 1200 140" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
     <path id="cable" d="M-20 18 Q 300 120 600 40 T 1220 30"/>
     <g id="focos"></g>
   </svg>
@@ -308,7 +310,8 @@ footer b{font:400 1.2rem var(--s);color:#fff}
     }
     pedir.href='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
   }
-  checks.forEach(function(c){c.addEventListener('change',act)});act();
+  checks.forEach(function(c){c.addEventListener('change',function(){act();cuenta()})});act();
+  function cuenta(){tabs.forEach(function(tb){var p=document.getElementById(tb.getAttribute('aria-controls')),k=p.querySelectorAll('input:checked').length,e=tb.querySelector('em');if(k){if(!e){e=document.createElement('em');tb.appendChild(e)}e.textContent=k}else if(e){e.remove()}})}
 
   /* tira de fotos */
   var t=document.getElementById('tira'),imgs=t.querySelectorAll('img'),ant=document.getElementById('ant'),sig=document.getElementById('sig'),cont=document.getElementById('contador');
